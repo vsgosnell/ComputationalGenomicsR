@@ -83,3 +83,30 @@ mydata <- read x1sx("c:/myexcel.x1sx", 1)
 # read in the worksheet named mysheet
 mydata <- read x1sx("c:/myexcel.x1sx", sheetName = "mysheet")
 
+
+
+
+length(expression) # number of elements or components
+
+str(expression)    # structure of an object 
+
+class(expression)  # class or type of an object
+
+names(expression)  # names
+
+
+
+
+x1 <- 1:3; y1 <- 1:3
+c(x1,y1)       # combine objects into a vector
+
+cbind(x1,y1)   # combine objects as columns
+
+rbind(x1,y1)   # combine objects as rows 
+
+x1     # prints the object
+
+ls()       # list current objects
+
+rm(x1) # delete an object
+

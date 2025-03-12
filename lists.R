@@ -31,3 +31,19 @@ vectorexample
 listexample
 
 
+
+
+# example of a list with 4 components - 
+# a string, a numeric vector, a matrix, and a scaler 
+w <- list(name = 'Marcus',  days = c('2nd', '4th', '20th', '28th'),
+          exp = expression, height = '177cm')
+w
+
+
+w[[3]] # 3rd component of the list
+
+
+w[["exp"]] # component named exp in list
+
+
+

@@ -24,3 +24,14 @@ mydata[c("ID", "Color")]
 mydata$X1
 
 
+
+
+
+
+expression <- runif(4) # random sampling four values from 0 to 1
+gene <- c("gene1", "gene2", "gene3", "gene4")
+f <- c(TRUE,TRUE,TRUE,FALSE)
+mydata <- data.frame(Gene       = gene, 
+                     Expression = expression, 
+                     pick       =f)
+print(mydata)
