@@ -52,6 +52,7 @@ genes_with_reads <- which(rowSums(df > 0) > 0)
                     #rowSums(df > 0) counts the number of TRUE values (non-zero counts) for each row
                         #gives a vector where each value = # of samples with non-zero reads for that gene
                     #which() returns the row indices where the condition is TRUE
+                    #only removes rows where ALL values are 0
 
 # Extract the filtered gene expression data
 filtered_df <- df[genes_with_reads, , drop = FALSE] # selects only the rows (genes) with at least one non-zero read
