@@ -15,8 +15,12 @@ head(df)
 
 #Question 1a
 # for loop to list quantile distribution of the last 4 columns
-for (x in 6:ncol(df)) {
-  print(quantile(df[,x]))  
+for (x in 6:ncol(df)) { # ncol(df) finds total number of columns in df
+                        # 6:ncol(df) creates a sequence starting from col 6 to the last col
+                        # x iterates over the indices one by one
+  print(quantile(df[,x]))  # df[,x] extracts the xth column from the df
+                          # quantile(df[,x]) computes quantiles of the column
+                          # default quantile returns: 0% min, 25% Q1, 50% Q2, 75% Q3, 100% Q4
 }
 
 
@@ -28,23 +32,30 @@ for (x in 6:ncol(df)) {
 
 #Question 1b
 # Applying the quantile function to columns 6 to 9
-quantiles <- apply(df[, 6:9], 2, quantile, 
-                   probs = c(0, 0.25, 0.5, 0.75, 1), na.rm = TRUE)
-#probs specifies the quantiles: Q1-Q4
+quantiles <- apply(df[, 6:9], 2, quantile, # df[,6:9] selects columns 6:9
+                                          # apply() applies function column-wise -> 2 meaning
+                                          # quantile applies quantile function to each column
+                   probs = c(0, 0.25, 0.5, 0.75, 1), na.rm = TRUE) #probs specifies the quantiles: Q1-Q4
 
 # Print the result
 print(quantiles)
+#outputs a matrix where rows = different quantiles, columns = different samples
 
 
 
 
 
 #Question 2a
-# Identify genes (rows) with at least one read (non-zero value)
-genes_with_reads <- which(rowSums(df > 0) > 0)
+# Identify genes (rows) with at least one read (non-zero value) -> aka genes that have been detected in at least one sample
+genes_with_reads <- which(rowSums(df > 0) > 0) 
+                    # df > 0 creates logical matrix where TRUE = value > 0, FALSE = value = 0
+                    #rowSums(df > 0) counts the number of TRUE values (non-zero counts) for each row
+                        #gives a vector where each value = # of samples with non-zero reads for that gene
+                    #which() returns the row indices where the condition is TRUE
 
 # Extract the filtered gene expression data
-filtered_df <- df[genes_with_reads, , drop = FALSE]
+filtered_df <- df[genes_with_reads, , drop = FALSE] # selects only the rows (genes) with at least one non-zero read
+                        # drop = FALSE ensures the result remains a data frame (not converted to a vector if only one row is left)
 
 # Print the result
 print(filtered_df)
