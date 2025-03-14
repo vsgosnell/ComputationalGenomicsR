@@ -62,10 +62,10 @@ for( i in 1:nrow(df)) {
 
  
  
- #apply, sapply, lappy
+#apply, sapply, lappy
  
- #apply is replacement for for loop
- # 1 is manipulating for each row, 2 indicates manipulating each column
+#apply is replacement for for loop
+# 1 is manipulating for each row, 2 indicates manipulating each column
 apply(df, 1, mean)
 #input matrix you want, manipulate by column, what kind of manipulation you want for this matrix
  
